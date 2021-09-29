@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Cesar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <a href="">Regresar al menú de ejercicios </a>
+        <div class="main">
+        <h1>Cifrado Cesar</h1>
+            <p>Este es un ejemplo del cifrado original cesar 
+                en el cual se usa un cambio en la posicion dentro del 
+                alfabeto de n lugares. Es necesario escribir un mensaje en el 
+                el cuadro de "mensaje de entrada" que aparece debajo y escribir la llave o la posicion para cifrar o
+                decifrar el mensaje.</p>
+                <div class="container"> 
+                    <h2>Mensaje de entrada:</h2>
+                    <textarea id="cadena" onkeypress=""></textarea>
+                    <p><input type="text" placeholder="Posicion o clave"  id="posicion" onkeypress="return num(event)" maxlength="8"></p>
+                    <p><input type="button" value="Cifrar" onclick="codificar()">
+                    <input type="button" value="Descifrar" onclick="decodificar()">
+                </div>
+                </p>
+                <p>
+                <h2>Mensaje de salida:</h2> 
+                <div id="resultado"></div>
+                </p>
+          </div>
+          <div class="main">
+            <h1>Cifrado Vigenere</h1>
+            <p>El cifrado Vigenère es un cifrado basado en diferentes series de caracteres o letras del cifrado César formando estos caracteres una tabla, llamada tabla de Vigenère, que se usa como clave. El cifrado de Vigenère es un cifrado polialfabético y de sustitución.</p>
+                <div class="container"> 
+                    <h2>Mensaje de entrada:</h2>
+                    <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="">
+                    <h2>Mensaje clave:</h2>
+                    <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="">
+                    <p>
+                    <input id="ci" type="button" value="Cifrar" onclick="">
+                    <input id="de" type="button" value="Descifrar" onclick="">
+                </div>
+                </p>
+                <p>
+                <h2>Mensaje de salida:</h2> 
+                <div id="resultado"></div>
+                </p>
+          </div>
+        
+           
+    
+
+    <script src="js/cesar.js" ></script>
+</body>
+</html>

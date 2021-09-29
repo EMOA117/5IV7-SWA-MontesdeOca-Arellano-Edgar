@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Vigenere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <a href="">Regresar al menú de ejercicios </a>
+        <div class="main">
+        <h1>Cifrado Vigenere</h1>
+        <div class="row">
+            <p>El cifrado Vigenère es un cifrado basado en diferentes series de caracteres o letras del cifrado César formando estos caracteres una tabla, llamada tabla de Vigenère, que se usa como clave. El cifrado de Vigenère es un cifrado polialfabético y de sustitución.</p>
+                <div class="container"> 
+                    <h2>Mensaje de entrada:</h2>
+                    <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="">
+                    <h2>Mensaje clave:</h2>
+                    <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="">
+                    <p>
+                    <input id="ci" type="button" value="Cifrar" onclick="">
+                    <input id="de" type="button" value="Descifrar" onclick="">
+                </div>
+                </p>
+                <p>
+                <h2>Mensaje de salida:</h2> 
+                <div id="resultado"></div>
+                </p>
+          </div>
+        </div>
+           
+    
+
+    <script src="js/vigenere.js" ></script>
+</body>
+</html>
