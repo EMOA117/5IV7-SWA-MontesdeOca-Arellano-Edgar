@@ -16,6 +16,9 @@ body{
     font-family: "Recursive";
     color: black;
 }
+textarea{
+    size: none;
+}
 
 h2, h1{
     color: white;
