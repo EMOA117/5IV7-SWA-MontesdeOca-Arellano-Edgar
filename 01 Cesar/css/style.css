@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Recursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 
 
 nav{
@@ -10,17 +10,13 @@ nav{
 
 nav a{
     width: 50%;
-    font-family: "Alata";
+    font-family: 'Roboto Slab';
     text-align: center;
     padding: 1.2rem;
     color: white;
     font-weight: bold;
 }
 
-nav a img{
-    margin-top: auto;
-    height: 2.9rem;
-}
 
 nav a:hover{
     background-color: #3a506b;
@@ -30,7 +26,7 @@ body{
     margin-bottom: 3rem;
     display: flex;
     background-color: #5bc0be;
-    font-family: "Recursive";
+    font-family: 'Roboto Slab';
     color: black;
 }
 textarea{
@@ -43,7 +39,7 @@ textarea{
 
 h2, h1{
     color: white;
-    font-family: "Alata";
+    font-family: 'Roboto Slab';
 }
 
 .main{
@@ -53,9 +49,14 @@ h2, h1{
     margin-top: 5%;
 }
 
+.description{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 a{
-    color: var(--color-3);
-    font-family: "Recursive";
+    
+    font-family: 'Roboto Slab';
     font-weight: bold;
 }
 
@@ -72,7 +73,7 @@ input[type=text], input[type=number]{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     color: #000000;
-    font-family: "Recursive";
+    font-family: 'Roboto Slab';
     font-weight: bold;
 }
 
@@ -86,7 +87,7 @@ input[type=button]{
     border: 1px solid #0b132b;
     background-color: #1c2541;
     color: #FFFFFF;
-    font-family: "Recursive";
+    font-family: 'Roboto Slab';
 }
 
 input[type=button]:hover{
@@ -112,7 +113,7 @@ input[type=number]::-webkit-outer-spin-button {
 margin: 0;
 }
 
-@media (max-width:800px){
+@media (max-width:1000000px){
     body{
         display: block;
     }

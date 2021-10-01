@@ -10,12 +10,12 @@
 </head>
 <body>
     <nav>
-        <a href="">Cifrado Cesar</a>
-        <a href="">Cifrado Vigenere</a>
+        <a href="index.html">Cifrado Cesar</a>
+        <a href="vigenere.html">Cifrado Vigenere</a>
     </nav>
         <div class="main">
         <h1>Cifrado Cesar</h1>
-            <p>Este es un ejemplo del cifrado original cesar 
+            <p class="description">Este es un ejemplo del cifrado original cesar 
                 en el cual se usa un cambio en la posicion dentro del 
                 alfabeto de n lugares. Es necesario escribir un mensaje en el 
                 el cuadro de "mensaje de entrada" que aparece debajo y escribir la llave o la posicion para cifrar o
@@ -23,9 +23,9 @@
                 <div class="container"> 
                     <h2>Mensaje de entrada:</h2>
                     <textarea id="cadena" onkeypress=""></textarea>
-                    <p><input type="text" placeholder="Posicion o clave"  id="posicion" onkeypress="return num(event)" maxlength="8"></p>
-                    <p><input type="button" value="Cifrar" onclick="codificar()">
-                    <input type="button" value="Descifrar" onclick="decodificar()">
+                    <p><input type="text" placeholder="Posicion o clave"  id="desplazamiento" onkeypress="" maxlength="8"></p>
+                    <p><input type="button" value="Cifrar" onclick="cifrar()">
+                    <input type="button" value="Descifrar" onclick="descifrar()">
                 </div>
                 </p>
                 <p>

@@ -1,96 +1,96 @@
-/*
-Vamos a crear una funcion con el uso de JS6 
-que se encargue del cifrado y del descifrado del texto
-de area considerando a utilizar funciones anonimas y callback
-A B C D E F G H I J  K  L  M  N  Ñ  O  P  Q  R  S  T  U  V  W  X  Y  Z
-0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 
-*/
+var cesar = cesar || (function() {
+    var proceso = function(txt, desp, action) {
 
-var cesar = cesar || (function(){
-    //tenemos que entender que para poder cifrar o descifrar es neccesario 
-    //obtener 3  parametros
-    //texto, desplazamaniento y la accion 
-    var doStaff = function(txt, desp, action){
-        //nota ya estamos mal, la nueva version de js 
-        //ya no maneja var, ahora todo es let y const
-
-        //Vamos a rempalzar
-        var replace = (function(){
-            //necesito un alfabeto
-            var abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-            'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
+        var replace = (function() {
+            //primero necesito tener la matriz del alfabeto
+            //hay que recorrar que el cifrado lo hace caracter por caracter
+            var abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+                'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+                'x', 'y', 'z'
+            ];
             var l = abc.length;
-            //Tenemos que crear una funcion que se encargue de realizar el cambio de posiciones de las letras para el cifrado
-            //recibe texto
-            return function(c){
+            //necesitamos obtener la posicion que va  a venir por parte 
+            //de la llave privada
+            return function(c) {
+                //vamos a saber la posicion
                 var i = abc.indexOf(c.toLowerCase());
-                console.log(i);
-                //reemplazo de las posiciones
-                //primero debemos de saber si el texto esta vacio
-                if(i != -1){
-                    //Hay algo que  cifrar
-                    //movimiento de las posciones
+                //necesitamos saber es donde estamos adentro de la matriz
+                //como la vamos a recorrer y que pasa cuando llegue
+                //al final?
+                //alert(c);
+                //alert(i);
+                if (i != -1) {
+                    //primero obtenemos la posicion para el desp
                     var pos = i;
-                    
-                    if(action){
-                        //cifrar
-                        pos = (pos+desp)%27;
-                        pos -= (pos>=1)?1:0;
-                    }else{
-                        //Descifrar 
-                        for(let j=0; j<desp;j++){
-                            var despf = 27*j;
-                            if(despf>=desp){
-                                break;
-                            }
-                        }
-                        pos = (pos-desp+despf+1)%27;
-                        pos += (pos<0)?1:0;
+                    //que voy a hacer cifrar o descifrar
+                    if (action) {
+                        //cifrar para adelante
+                        pos += desp;
+                        //como se va a mover
+                        pos -= (pos >= l) ? l : 0;
+                    } else {
+                        //descifrar para atras
+                        pos -= desp;
+                        //movimiento
+                        pos += (pos < 0) ? l : 0;
                     }
                     return abc[pos];
                 }
                 return c;
             };
-        })(); 
-
-        //vamos a neccesitar regresar el reemplazo de la cadena
-        //pero hay que verificarla
-        var re = (/[a-zñ]/ig);   //Para que solo adminta letras
-        return String(txt).replace(re, function(macth){
-            //Se encarga de buscar las coincidencias entre la
-            //expresion regular y el textarea
-            return replace(macth); 
+        })();
+        //tenemos que saber que el texto este acorde al abc
+        var re = (/([a-zñ])/ig);
+        //una funcion que se encargue del intercambio
+        return String(txt).replace(re, function(match) {
+            return replace(match);
         });
     };
-
-    //necesitamos enviar si vamos a cifrar o descifrar
     return {
-        //El caso cuando cifras
-        encode : function(txt, desp){
-            return doStaff(txt, desp, true);
+        encode: function(txt, desp) {
+            return proceso(txt, desp, true);
         },
-        decode : function(txt, desp){
-            return doStaff(txt, desp, false);
+        decode: function(txt, desp) {
+            return proceso(txt, desp, false);
         }
     };
-
 })();
 
-//las funciones de codificar y decodificar
-function codificar(){
-    if(isNaN(parseInt(document.getElementById("posicion").value))){
-        document.getElementById("resultado").innerHTML = "Debe poner un numero positivo en la posicion >:c";                
-    }else{
-        document.getElementById("resultado").innerHTML = 
-        cesar.encode(document.getElementById("cadena").value, parseInt(document.getElementById("posicion").value));
-    }    
+//funcion de cifrado
+
+function cifrar() {
+    var desplazamiento = document.getElementById("desplazamiento").value;
+    desplazamiento %= 27;
+    document.getElementById("resultado").innerHTML =
+        cesar.encode(document.getElementById("cadena").value, desplazamiento);
 }
-function decodificar(){
-    if(isNaN(parseInt(document.getElementById("posicion").value))){
-        document.getElementById("resultado").innerHTML = "Debe poner un numero positivo en la posicion >:c";                
-    }else{
-        document.getElementById("resultado").innerHTML = 
-        cesar.decode(document.getElementById("cadena").value, parseInt(document.getElementById("posicion").value));
+
+//funcion de descifrado
+
+function descifrar() {
+    var desplazamiento = document.getElementById("desplazamiento").value;
+    desplazamiento %= 27;
+    document.getElementById("resultado").innerHTML =
+        cesar.decode(document.getElementById("cadena").value, desplazamiento);
+}
+
+function revision(mess) {
+    const re = /^([a-zñ?]+([]*[a-zñ?]?['-]?[a-zñ?]+)*)$/
+
+    var acc = true;
+
+    if(!re.test(mess)){
+        sd();
+        acc = false;
     }
+    return acc;
+}
+
+function sd(){
+    //alert para decir que el texto no ha sido aceptado
+    Swal.fire({
+        title:"Error",
+        text:"El texto ingreso no ha sido aceptado, ingrese solo minusculas y evite numeros y simbolos",
+        icon: 'error'
+    });
 }
