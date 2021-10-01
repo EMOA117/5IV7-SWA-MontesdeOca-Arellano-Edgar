@@ -9,7 +9,10 @@
     <link rel="shortcut icon" href="img/icon.png">
 </head>
 <body>
-        <a href="">Regresar al menú de ejercicios </a>
+    <nav>
+        <a href="">Cifrado Cesar</a>
+        <a href="">Cifrado Vigenere</a>
+    </nav>
         <div class="main">
         <h1>Cifrado Cesar</h1>
             <p>Este es un ejemplo del cifrado original cesar 
@@ -30,28 +33,6 @@
                 <div id="resultado"></div>
                 </p>
           </div>
-          <div class="main">
-            <h1>Cifrado Vigenere</h1>
-            <p>El cifrado Vigenère es un cifrado basado en diferentes series de caracteres o letras del cifrado César formando estos caracteres una tabla, llamada tabla de Vigenère, que se usa como clave. El cifrado de Vigenère es un cifrado polialfabético y de sustitución.</p>
-                <div class="container"> 
-                    <h2>Mensaje de entrada:</h2>
-                    <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="">
-                    <h2>Mensaje clave:</h2>
-                    <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="">
-                    <p>
-                    <input id="ci" type="button" value="Cifrar" onclick="">
-                    <input id="de" type="button" value="Descifrar" onclick="">
-                </div>
-                </p>
-                <p>
-                <h2>Mensaje de salida:</h2> 
-                <div id="resultado"></div>
-                </p>
-          </div>
-        
-           
-    
-
     <script src="js/cesar.js" ></script>
 </body>
 </html>

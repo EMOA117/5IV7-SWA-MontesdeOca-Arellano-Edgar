@@ -51,7 +51,7 @@ $(document).ready(function() {
             }
             for (var i = 0; i < mess.length; i++) {
                 //obtener la poscion de la letra por letra del mensaje
-                let charr = keyComplete.charAt(i);
+                let charr = mess.charAt(i);
                 let posm = getPosition(charr);
                 charr = keyComplete.charAt(i);
                 let posk = getPosition(charr);
@@ -77,9 +77,9 @@ function change(posm, posk) {
 function rechange(posm, posk) {
     let val = 0;
     if ((posm-posk) >= 0) {
-        val = (posm+posk)%27;
+        val = (posm - posk) %27;
     } else {
-        val = (posm-posk+27)%27;
+        val = (posm - posk + 27)%27;
     }
     return val;
 }
