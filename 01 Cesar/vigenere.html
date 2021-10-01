@@ -22,9 +22,9 @@
             <p class="description">El cifrado Vigenère es un cifrado basado en diferentes series de caracteres o letras del cifrado César formando estos caracteres una tabla, llamada tabla de Vigenère, que se usa como clave. El cifrado de Vigenère es un cifrado polialfabético y de sustitución.</p>
                 <div class="container"> 
                     <h2>Mensaje de entrada:</h2>
-                    <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="">
+                    <input type="text" placeholder="Mensaje de entrada"  id="mess" onkeypress="" onpaste="return false;" ondrop="return false;">
                     <h2>Mensaje clave:</h2>
-                    <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="">
+                    <input type="text" placeholder="Mensaje clave"  id="llave" onkeypress="" onpaste="return false;" ondrop="return false;">
                     <p>
                     <input id="ci" type="button" value="Cifrar" onclick="">
                     <input id="de" type="button" value="Descifrar" onclick="">

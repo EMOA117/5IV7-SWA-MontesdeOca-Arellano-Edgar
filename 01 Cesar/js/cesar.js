@@ -59,38 +59,58 @@ var cesar = cesar || (function() {
 //funcion de cifrado
 
 function cifrar() {
+
+    var re = /^([a-zñ?]+([]*[a-zñ?]?['-]?[a-zñ?]+)*)$/
+    var ren = /^[1-9]$|^[1-9][0-9]$|^(100)$/  
+    var mess = document.getElementById("cadena").value;
     var desplazamiento = document.getElementById("desplazamiento").value;
-    desplazamiento %= 27;
-    document.getElementById("resultado").innerHTML =
-        cesar.encode(document.getElementById("cadena").value, desplazamiento);
+        if(!re.test(mess)){
+        sd();
+        }else{
+            if(!ren.test(desplazamiento)){
+                sn();
+            }else{
+            desplazamiento %= 27;
+            document.getElementById("resultado").innerHTML =
+                cesar.encode(mess, desplazamiento);
+            }
+        }
 }
 
 //funcion de descifrado
 
 function descifrar() {
+    var re = /^([a-zñ?]+([]*[a-zñ?]?['-]?[a-zñ?]+)*)$/
+    var ren = /^[1-9]$|^[1-9][0-9]$|^(100)$/  
+    var mess = document.getElementById("cadena").value;
     var desplazamiento = document.getElementById("desplazamiento").value;
-    desplazamiento %= 27;
-    document.getElementById("resultado").innerHTML =
-        cesar.decode(document.getElementById("cadena").value, desplazamiento);
-}
-
-function revision(mess) {
-    const re = /^([a-zñ?]+([]*[a-zñ?]?['-]?[a-zñ?]+)*)$/
-
-    var acc = true;
-
-    if(!re.test(mess)){
+        if(!re.test(mess)){
         sd();
-        acc = false;
-    }
-    return acc;
+        }else{
+            if(!ren.test(desplazamiento)){
+                sn();
+            }else{
+            desplazamiento %= 27;
+            document.getElementById("resultado").innerHTML =
+                cesar.decode(mess, desplazamiento);
+            }
+        }
 }
 
 function sd(){
     //alert para decir que el texto no ha sido aceptado
     Swal.fire({
         title:"Error",
-        text:"El texto ingreso no ha sido aceptado, ingrese solo minusculas y evite numeros y simbolos",
+        text:"El texto que ingreso no ha sido aceptado, ingrese solo minusculas y evite numeros y simbolos",
+        icon: 'error'
+    });
+}
+
+function sn(){
+    //alert para decir que el texto no ha sido aceptado
+    Swal.fire({
+        title:"Error",
+        text:"La clave solamente acepta numeros positivos, diferentes a cero y menores que 100",
         icon: 'error'
     });
 }

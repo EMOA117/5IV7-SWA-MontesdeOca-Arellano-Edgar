@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cifrado Cesar</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="img/icon.png">
 </head>
 <body>
@@ -22,8 +23,8 @@
                 decifrar el mensaje.</p>
                 <div class="container"> 
                     <h2>Mensaje de entrada:</h2>
-                    <textarea id="cadena" onkeypress=""></textarea>
-                    <p><input type="text" placeholder="Posicion o clave"  id="desplazamiento" onkeypress="" maxlength="8"></p>
+                    <textarea id="cadena" onkeypress="" onpaste="return false;" ondrop="return false;"></textarea>
+                    <p><input type="text" placeholder="Posicion o clave"  id="desplazamiento" onkeypress="" maxlength="8" onpaste="return false;" ondrop="return false;"></p>
                     <p><input type="button" value="Cifrar" onclick="cifrar()">
                     <input type="button" value="Descifrar" onclick="descifrar()">
                 </div>
